@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Development</title>
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        a,
+        button {
+            font-family: "Roboto", arial !important;
+        }
+
+        p {
+            font-family: "Roboto", arial !important;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 100%;            
+        }
+
+        .demo_main_section{
+            width: 100%;
+            margin:0px;
+            padding: 0px;
+        }
+        .section_header{
+            font-size: 24px;
+            text-align: center;
+        }
+        .demo_divider{
+            width: 70%;
+            margin: 30px auto;
+            border-bottom: 2px solid #E5E5E5;            
+        }
+        .demo_clear{
+            clear: both;
+        }
+        .demo_flex{
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /*=====header =======*/
+        .demo_header_section{
+            height: 75px;
+            text-align: right;
+            padding: 25px 15px;
+        }
+        .menu_icon img{
+            width: 32px;
+        }
+        /*====== header =======*/
+
+
+        /*===== Hero =====*/
+        .demo_hero_section{
+            background-color: #4FAFB4;
+            text-align: left;
+            color: #fff;
+            height: 350px;;
+            padding: 5%;
+        }
+        .hero_details{
+            max-width: 600px;
+            margin: 0px auto;
+        }
+        .demo_hero_section h2{
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+        .demo_hero_section p{
+            font-size: 16px;
+        }
+        .demo_hero_circle{
+            max-width: 302px;
+            margin: 0px auto;
+        }
+        .demo_hero_circle img{
+            margin-top: -151px;
+        }
+        /*====== Hero =======*/
+
+
+        /*===== newsletter =====*/
+        .demo_newsletter_section{
+            text-align: center;
+        }
+        .newsletter_mail{
+            border: 3px solid #4FAFB4;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 20px auto;
+            display: block;
+            min-width: 340px;
+            font-size: 14px;
+        }
+        .newsletter_button{
+            width: 145px;
+            height: 50px;
+            background-color: #4FAFB4;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 24px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        /*===== newsletter =====*/
+
+
+        /*===== my story =====*/
+        .demo_story_section h2{
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .demo_story .col{
+            width: 50%;
+        }
+        .demo_story_section p{
+            padding: 20px 15px;
+        }
+        .demo_read_more_btn{
+            color: #4FAFB4;
+            float: right;
+            padding: 0px 20px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        /*===== my story =====*/
+
+
+        /*===== testimonial =====*/
+        .demo_testimonial_section {
+            margin-top: 40px;
+        }
+        .testimonial_item{
+            width: 50%;
+            margin: 70px 20px 20px 20px;
+            padding: 20px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, .25);
+        }
+        .testimonial_client_avatar{
+            max-width: 113px;            
+        }
+        .testimonial_client_avatar img{             
+            margin-top: -66px;
+            margin-right: 25px;
+            float: left;
+        }
+        .testimonial_client_details h3{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .testimonial_client_details h4{
+            font-size: 16px;
+            font-weight: normal;
+        }
+        .testimonial_details{
+            clear: both;
+        }
+        .testimonial_details p{
+            padding-top: 10px;
+            font-style: italic;
+            font-size: 16px;
+        }
+        .testimonial_details span{
+            font-size: 36px;
+            color: #4FAFB4;
+        }
+        /*===== testimonial =====*/
+
+
+        /*===== Blog =====*/
+        .demo_blog_section{
+            margin-top: 40px;
+        }
+        .demo_blog_section h2{
+            margin-bottom: 40px;
+        }
+        .demo_blog_item{
+            width: 50%;
+            margin: 20px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, .25);
+        }
+        .blog_details{
+            padding: 20px 10px;
+        }
+        .blog_created{
+            font-weight: normal;
+        }
+        /*===== Blog =====*/
+
+
+        /*===== footer =====*/
+        .footer_section{
+            margin: 65px auto;
+            text-align: center;
+        }
+        .footer_menu{
+            list-style: none;
+        }
+        .footer_menu li{
+            display: inline;
+        }
+        .footer_menu li:not(:last-child):after {
+            content:'|';
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .footer_menu li a{
+            padding: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #000000;
+        }
+        /*===== footer =====*/
+
+
+        @media only screen and (max-width: 767px) {
+        /* story */
+        .demo_story_section > .demo_flex{
+            flex-wrap: wrap;
+        }
+        .demo_story .col{
+            width: 100%;
+        }
+        /* story */
+
+
+
+            /* newsletter */
+        .demo_newsletter_section{
+            text-align: center;
+        }
+        .testimonial_client{
+            display: block;
+        }
+        .demo_newsletter_section h2{
+            font-size: 24px;
+        }
+        .newsletter_mail{
+            min-width: 80%;
+        }
+        /* newsletter */
+
+
+
+        /* Testimonial */
+        .demo_testimonial_section > .demo_flex{
+            flex-wrap: wrap;
+        }
+        .testimonial_item{
+            width: 100%;
+        }
+        /*== Testimonial== */
+
+
+
+        /*== blog section ==*/
+        
+        .demo_blog_section > .demo_flex{
+            flex-wrap: wrap;
+        }
+        .demo_blog_item{
+            width: 100%;
+        }
+        /* blog section */
+
+
+        }
+    </style>
+</head>
+<body>
+<section class="demo_main_section">
+
+    <!-- header section -->
+    <div class="demo_header_section">
+        <div class="menu_icon">
+            <img src="img/demo_menu_bar.png">
+        </div>
+    </div>
+    <!-- header section -->
+
+
+    <!-- Hero section -->
+    <div class="demo_hero_section">
+        <div class="hero_details">        
+            <h2 class="section_header">Contrary to popular belief, Lorem Iewcjhvjeh</h2>
+            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at wwjhcwhwgcweccww</p>
+        </div>
+    </div>
+    <div class="demo_hero_circle">
+            <img src="img/demo_hero_cirble.png">
+    </div> 
+    <!-- Hero section -->
+
+
+    <!-- Newsletter section -->       
+    <div class="demo_newsletter_section">
+      <div class="demo_divider"></div>   
+        <h2 class="section_header">Subscribe to my blog to stay updated with the latests posts.</h2>
+        <input class="newsletter_mail" type="text" placeholder="Please enter your email address">
+        <button class="newsletter_button" type="button">Subscribe</button>
+        <div class="demo_divider"></div>
+    </div>        
+    <!-- Newsletter section -->
+
+
+    <!-- Story Section -->
+    <div class="demo_story_section">
+        <h2 class="section_header">My Story</h2>
+        <div class="demo_story demo_flex"> 
+            <div class="col demo_story_image">
+                <img src="img/demo_story_image1.png">
+            </div> 
+            <div class="col demo_story_details">
+                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at<br><br>
+                    random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at<br><br>
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at ce4
+                </p>
+            </div> 
+        </div>
+        <a class="demo_read_more_btn" href="">Read More Story</a>
+        <div class="demo_clear"></div>
+    </div>
+    <!-- Story Section -->
+
+    <!-- testimonial Section -->
+    <div class="demo_testimonial_section">
+        <h2 class="section_header">Testimonials</h2>
+        <div class="demo_testimonial_items demo_flex">
+            <!-- testimonial item -->
+            <div class="testimonial_item">
+                <div class="testimonial_client">
+                    <div class="testimonial_client_avatar">
+                        <img src="img/testimonial_client1.png">
+                    </div>
+                    <div class="testimonial_client_details">
+                        <h3>John Doe</h3>
+                        <h4>Professor</h4>
+                    </div>
+                </div>
+                <div class="testimonial_details">
+                    <p><span>“</span> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                </div>
+            </div>
+            <!-- testimonial item -->
+            <!-- testimonial item -->
+            <div class="testimonial_item">
+                <div class="testimonial_client">
+                    <div class="testimonial_client_avatar">
+                        <img src="img/testimonial_client1.png">
+                    </div>
+                    <div class="testimonial_client_details">
+                        <h3>John Doe</h3>
+                        <h4>Professor</h4>
+                    </div>
+                </div>
+                <div class="testimonial_details">
+                    <p><span>“</span> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                </div>
+            </div>
+            <!-- testimonial item -->       
+        </div> 
+    </div>
+    <!-- testimonial Section -->
+
+
+    <!-- blog Section -->
+    <div class="demo_blog_section">
+        <h2 class="section_header">Latest Posts</h2>  
+
+        <div class="demo_blog_items demo_flex"> 
+            <!-- blog item -->           
+            <div class="demo_blog_item">
+                <div class="blog_image">
+                    <img src="img/blog_image1.png">
+                </div>
+                <div class="blog_details">
+                    <h3 class="blog_headline">dummy text of the printing and wgwcvwwjh</h3>
+                    <h3 class="blog_created">August 20, 2020</h3>
+                </div>
+            </div>
+            <!-- blog item -->
+            <!-- blog item -->
+            <div class="demo_blog_item">
+                <div class="blog_image">
+                    <img src="img/blog_image1.png">
+                </div>
+                <div class="blog_details">
+                    <h3 class="blog_headline">dummy text of the printing and wgwcvwwjh</h3>
+                    <h3 class="blog_created">August 20, 2020</h3>
+                </div>
+            </div>
+            <!-- blog item -->
+        </div>
+        <a class="demo_read_more_btn" href="">Check out all the latest blogs</a>
+    </div>
+    <!-- blog Section -->
+
+
+    <!-- footer Section -->
+    <div class="footer_section">
+        <div class="demo_divider"></div>
+        <div class="menu_bar">
+            <ul class="footer_menu">
+                <li><a href="">Home</a> </li>
+                <li><a href="">Blog</a> </li>
+                <li><a href="">About</a> </li>
+            </ul>
+        </div>
+    </div>
+    <!-- footer Section -->
+
+</section>
+<!-- main Section -->
+</body>
+</html>
