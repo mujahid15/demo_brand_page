@@ -7,21 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo Development</title>
     <style>
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        a,
-        button {
+        /* Common styles */
+        h1, h2, h3, h4, h5, h6, a, button {
             font-family: "Roboto", arial !important;
         }
-
         p {
             font-family: "Roboto", arial !important;
         }
-
         * {
             margin: 0;
             padding: 0;
@@ -37,32 +29,48 @@
             width: 100%;            
         }
 
-        .demo_main_section{
-            width: 100%;
-            margin:0px;
-            padding: 0px;
+        .demo-page-section{
+		    display: block;
         }
+
+        .demo-page-section .container{
+            width: 100%;
+            max-width: 1440px;
+            padding-right: .75rem;
+            padding-right: var(--bs-gutter-x, .75rem);
+            padding-left: .75rem;
+            padding-left: var(--bs-gutter-x, .75rem);
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .demo-page-section .container-fluid{
+            width: 100%;
+        }
+
         .section_header{
             font-size: 24px;
             text-align: center;
         }
-        .demo_divider{
+        .section_divider{
             width: 70%;
             margin: 30px auto;
             border-bottom: 2px solid #E5E5E5;            
         }
-        .demo_clear{
+        .clear_both{
             clear: both;
         }
-        .demo_flex{
+        .flex-box{
             display: flex;
             flex-wrap: nowrap;
             align-items: center;
             justify-content: center;
         }
+        /* Common styles */
+
 
         /*=====header =======*/
-        .demo_header_section{
+        .demo-page-section__header{
             height: 75px;
             text-align: right;
             padding: 25px 15px;
@@ -73,37 +81,198 @@
         /*====== header =======*/
 
 
-        /*===== Hero =====*/
-        .demo_hero_section{
+           
+        /** Sliders options **/
+        .demo-page-section__slider--content{
+            width: 100%;
             background-color: #4FAFB4;
-            text-align: left;
-            color: #fff;
-            height: 350px;;
-            padding: 5%;
         }
-        .hero_details{
+        .demo-page-section__slider--content .slider_first {
+            width: 50%;
+            min-height: 350px;
+            max-height: 350px;
+            background-color: #4FAFB4;
+            /* background-image: url("img/hslider_first_bg@2x.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center; */
+        }
+
+        .demo-page-section__slider--content .slider_second {
+            width: 50%;
+            min-height: 350px;
+            max-height: 350px;
+            background-color: #4FAFB4;
+            /* background-image: url("img/hslider_first_bg@2x.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center; */
+        }
+
+        .demo-page-section__slider--content .slider_third {
+            width: 50%;
+            min-height: 350px;
+            max-height: 350px;
+            background-color: #4FAFB4;
+            /* background-image: url("img/hslider_first_bg@2x.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center; */
+        }
+
+        .demo-page-section__slider {
+            overflow: hidden;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            width: 100%;
+            position: relative;
+            margin-bottom: 100px;
+        }
+
+        .demo-page-section__slides {
+            width: 200%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .demo-page-section__slider input {
+            display: none;
+        }
+
+        .slide {
+            min-width: 100%;
+            -webkit-transition: 2s;
+            transition: 2s;
+        }
+
+        /* Manual navigation */
+        .navigation-manual {
+            position: absolute;
+            width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            bottom: 0px;
+            padding: 10px 0 10px 25px;
+            width: 70px;
+            left: 42%;
+        }
+
+        .manual-btn {
+            border: 2px solid #ffffff;
+            padding: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            -webkit-transition: 1s;
+            transition: 1s;
+        }
+
+        .manual-btn:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        .manual-btn:hover {
+            background: #C2B4A5;
+        }
+
+        #radio1:checked ~ .first {
+            margin-left: 0;
+        }
+
+        #radio2:checked ~ .first {
+            margin-left: -100%;
+        }
+
+        #radio3:checked ~ .first {
+            margin-left: -200%;
+        }
+
+        .navigation-auto {
+            position: absolute;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            bottom: 0px;
+            /*background: rgba(255, 255, 255, 0.8);*/
+            padding: 10px 0 10px 25px;
+            width: 70px;
+            left: 42%;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .navigation-auto img {
+            width: 16px;
+            position: absolute;
+            margin: 0 0 0 -75px;
+            bottom: 9px;
+        }
+
+        .navigation-auto div {
+            border: 2px solid #09205c;
+            padding: 5px;
+            border-radius: 10px;
+            -webkit-transition: 1s;
+            transition: 1s;
+        }
+
+        .navigation-auto div:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        .navigation-auto .auto-btn1, .navigation-auto .auto-btn2, .navigation-auto .auto-btn3 {
+            background-color: #FFFFFF;
+        }
+
+        #radio1:checked ~ .navigation-auto .auto-btn1 {
+            background: #C2B4A5;
+        }
+
+        #radio2:checked ~ .navigation-auto .auto-btn2 {
+            background: #C2B4A5;
+        }
+
+        #radio3:checked ~ .navigation-auto .auto-btn3 {
+            background: #C2B4A5;
+        }
+
+
+       .slider_details{
             max-width: 600px;
             margin: 0px auto;
         }
-        .demo_hero_section h2{
-            margin-bottom: 25px;
+        .slider_details h1{
+            margin: 25px 0px;
             font-size: 24px;
+            color: #fff;
         }
-        .demo_hero_section p{
+        .slider_details p{
             font-size: 16px;
+            color: #fff;
         }
         .demo_hero_circle{
-            max-width: 302px;
+            /* max-width: 302px; */
             margin: 0px auto;
         }
-        .demo_hero_circle img{
-            margin-top: -151px;
-        }
-        /*====== Hero =======*/
+
+        /****slider styles****/
+
+
 
 
         /*===== newsletter =====*/
-        .demo_newsletter_section{
+        .demo-page-section__newsletter{
             text-align: center;
         }
         .newsletter_mail{
@@ -130,12 +299,15 @@
 
 
         /*===== my story =====*/
-        .demo_story_section h2{
+        .demo-page-section__story h2{
             margin-bottom: 30px;
             text-align: center;
         }
         .demo_story .col{
             width: 50%;
+        }
+        .demo_story_image{
+            padding: 20px;
         }
         .demo_story_section p{
             padding: 20px 15px;
@@ -152,7 +324,7 @@
 
 
         /*===== testimonial =====*/
-        .demo_testimonial_section {
+        .demo-page-section__testimonial {
             margin-top: 40px;
         }
         .testimonial_item{
@@ -193,10 +365,10 @@
 
 
         /*===== Blog =====*/
-        .demo_blog_section{
+        .demo-page-section__blog{
             margin-top: 40px;
         }
-        .demo_blog_section h2{
+        .demo-page-section__blog h2{
             margin-bottom: 40px;
         }
         .demo_blog_item{
@@ -214,7 +386,7 @@
 
 
         /*===== footer =====*/
-        .footer_section{
+        .demo-page-section__footer{
             margin: 65px auto;
             text-align: center;
         }
@@ -239,202 +411,299 @@
 
 
         @media only screen and (max-width: 767px) {
-        /* story */
-        .demo_story_section > .demo_flex{
-            flex-wrap: wrap;
-        }
-        .demo_story .col{
-            width: 100%;
-        }
-        /* story */
+            /* slider */
+            .demo-page-section__slides > .flex-box{
+                flex-wrap: wrap;
+            }
+            .demo-page-section__slider--content{
+                padding: 0px;
+                width: 100%;
+                background-color: #FFF;
+            }
+            .slider_first, .slider_second, .slider_third{
+                width: 100%!important;
+            }
+            .slider_details{
+                max-width: 340px;
+            }
+            .slider_details h1{
+                margin: 15px 0px;
+            }
+            .demo_hero_circle img{
+                margin-top: -151px;
+            }
+            .navigation-auto{
+                display: none;
+            }
+            .navigation-manual{
+                display: none;
+            }
+            /* slider */
+
+            
+            /* story */
+            .demo-page-section__story--content > .flex-box{
+                flex-wrap: wrap;
+            }
+            .demo_story .col{
+                width: 100%;
+            }
+            .demo_story_image{
+                padding: 0px;
+            }
+            /* story */
 
 
 
             /* newsletter */
-        .demo_newsletter_section{
-            text-align: center;
-        }
-        .testimonial_client{
-            display: block;
-        }
-        .demo_newsletter_section h2{
-            font-size: 24px;
-        }
-        .newsletter_mail{
-            min-width: 80%;
-        }
-        /* newsletter */
+            .demo-page-section__newsletter{
+                text-align: center;
+            }
+            .testimonial_client{
+                display: block;
+            }
+            .demo-page-section__newsletter h2{
+                font-size: 24px;
+            }
+            .newsletter_mail{
+                min-width: 80%;
+            }
+            /* newsletter */
 
 
 
-        /* Testimonial */
-        .demo_testimonial_section > .demo_flex{
-            flex-wrap: wrap;
-        }
-        .testimonial_item{
-            width: 100%;
-        }
-        /*== Testimonial== */
+            /* Testimonial */
+            .demo-page-section__testimonial--content > .flex-box{
+                flex-wrap: wrap;
+            }
+            .testimonial_item{
+                width: 100%;
+            }
+            /*== Testimonial== */
 
 
 
-        /*== blog section ==*/
-        
-        .demo_blog_section > .demo_flex{
-            flex-wrap: wrap;
-        }
-        .demo_blog_item{
-            width: 100%;
-        }
-        /* blog section */
-
-
+            /*== blog section ==*/            
+            .demo-page-section__blog--content > .flex-box{
+                flex-wrap: wrap;
+            }
+            .demo_blog_item{
+                width: 100%;
+            }
+            /* blog section */
         }
     </style>
 </head>
 <body>
-<section class="demo_main_section">
-
-    <!-- header section -->
-    <div class="demo_header_section">
+<section class="demo-page-section">
+    <div class="demo-page-section__header">
         <div class="menu_icon">
             <img src="img/demo_menu_bar.png">
         </div>
     </div>
-    <!-- header section -->
-
-
-    <!-- Hero section -->
-    <div class="demo_hero_section">
-        <div class="hero_details">        
-            <h2 class="section_header">Contrary to popular belief, Lorem Iewcjhvjeh</h2>
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at wwjhcwhwgcweccww</p>
+    <!-- header section -->        
+    <!-- hero section -->
+    <div class="demo-page-section__slider flex-box">        
+        <div class="demo-page-section__slides">
+        <!-- Radio buttons -->
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
+        
+        <div class="demo-page-section__slider--content flex-box slide first">
+            <div class="slider_first">
+                <div class="slider_details">                    
+                    <h1>Contrary to popular belief, Lorem Iewcjhvjeh , page1</h1>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at wwjhcwhwgcweccww</p>
+                 </div>          
+            </div>
+            <div class="demo_hero_circle">
+                <img src="img/demo_hero_cirble.png">
+            </div>           
+        </div>
+        <div class="demo-page-section__slider--content flex-box slide">
+            <div class="slider_second">
+                <div class="slider_details">                    
+                    <h1>Contrary to popular belief, Lorem Iewcjhvjeh , page2</h1>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at wwjhcwhwgcweccww</p>
+                </div>          
+            </div>  
+            <div class="demo_hero_circle">
+                <img src="img/demo_hero_cirble.png">
+            </div>         
+        </div>
+        <div class="demo-page-section__slider--content flex-box slide">
+            <div class="slider_third">
+                <div class="slider_details">
+                    <h1>Contrary to popular belief, Lorem Iewcjhvjeh , page3</h1>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at wwjhcwhwgcweccww</p>
+                </div>          
+            </div>
+            <div class="demo_hero_circle">
+                <img src="img/demo_hero_cirble.png">
+            </div> 
+        </div>
+        <!-- Auto navigation -->
+        <div class="navigation-auto">
+            <!-- <img src="images/nav-icon.png" /> -->
+            <div class="auto-btn1"></div>
+            <div class="auto-btn2"></div>
+            <div class="auto-btn3"></div>
+        </div>  
+        <div class="navigation-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+        </div>
+        </div>
+        <!-- Manual navigation -->
+        <div class="navigation-manual" style="display: none;">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
         </div>
     </div>
-    <div class="demo_hero_circle">
-            <img src="img/demo_hero_cirble.png">
-    </div> 
-    <!-- Hero section -->
 
 
     <!-- Newsletter section -->       
-    <div class="demo_newsletter_section">
-      <div class="demo_divider"></div>   
-        <h2 class="section_header">Subscribe to my blog to stay updated with the latests posts.</h2>
-        <input class="newsletter_mail" type="text" placeholder="Please enter your email address">
-        <button class="newsletter_button" type="button">Subscribe</button>
-        <div class="demo_divider"></div>
+    <div class="demo-page-section__newsletter">
+      <div class="section_divider"></div>   
+        <div class="demo-page-section__newsletter--content container">        
+            <h2 class="section_header">Subscribe to my blog to stay updated with the latests posts.</h2>
+            <input class="newsletter_mail" type="text" placeholder="Please enter your email address">
+            <button class="newsletter_button" type="button">Subscribe</button>
+        </div>
+        <div class="section_divider"></div>
     </div>        
     <!-- Newsletter section -->
 
 
     <!-- Story Section -->
-    <div class="demo_story_section">
-        <h2 class="section_header">My Story</h2>
-        <div class="demo_story demo_flex"> 
-            <div class="col demo_story_image">
-                <img src="img/demo_story_image1.png">
-            </div> 
-            <div class="col demo_story_details">
-                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at<br><br>
-                    random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at<br><br>
-                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at ce4
-                </p>
-            </div> 
+    <div class="demo-page-section__story container-fluid">
+        <div class="demo-page-section__story--content container">        
+            <h2 class="section_header">My Story</h2>
+            <div class="demo_story flex-box"> 
+                <div class="col demo_story_image">
+                    <img src="img/demo_story_image1.png">
+                </div> 
+                <div class="col demo_story_details">
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at<br><br>
+                        random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at<br><br>
+                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at ce4
+                    </p>
+                </div> 
+            </div>
+            <a class="demo_read_more_btn" href="">Read More Story</a>
         </div>
-        <a class="demo_read_more_btn" href="">Read More Story</a>
-        <div class="demo_clear"></div>
+        <div class="clear_both"></div>
     </div>
     <!-- Story Section -->
 
     <!-- testimonial Section -->
-    <div class="demo_testimonial_section">
-        <h2 class="section_header">Testimonials</h2>
-        <div class="demo_testimonial_items demo_flex">
-            <!-- testimonial item -->
-            <div class="testimonial_item">
-                <div class="testimonial_client">
-                    <div class="testimonial_client_avatar">
-                        <img src="img/testimonial_client1.png">
+    <div class="demo-page-section__testimonial">
+        <div class="demo-page-section__testimonial--content container">
+            <h2 class="section_header">Testimonials</h2>
+            <div class="demo_testimonial_items flex-box">
+                <!-- testimonial item -->
+                <div class="testimonial_item">
+                    <div class="testimonial_client">
+                        <div class="testimonial_client_avatar">
+                            <img src="img/testimonial_client1.png">
+                        </div>
+                        <div class="testimonial_client_details">
+                            <h3>John Doe</h3>
+                            <h4>Professor</h4>
+                        </div>
                     </div>
-                    <div class="testimonial_client_details">
-                        <h3>John Doe</h3>
-                        <h4>Professor</h4>
-                    </div>
-                </div>
-                <div class="testimonial_details">
-                    <p><span>“</span> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                </div>
-            </div>
-            <!-- testimonial item -->
-            <!-- testimonial item -->
-            <div class="testimonial_item">
-                <div class="testimonial_client">
-                    <div class="testimonial_client_avatar">
-                        <img src="img/testimonial_client1.png">
-                    </div>
-                    <div class="testimonial_client_details">
-                        <h3>John Doe</h3>
-                        <h4>Professor</h4>
+                    <div class="testimonial_details">
+                        <p><span>“</span> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
                     </div>
                 </div>
-                <div class="testimonial_details">
-                    <p><span>“</span> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                <!-- testimonial item -->
+                <!-- testimonial item -->
+                <div class="testimonial_item">
+                    <div class="testimonial_client">
+                        <div class="testimonial_client_avatar">
+                            <img src="img/testimonial_client1.png">
+                        </div>
+                        <div class="testimonial_client_details">
+                            <h3>John Doe</h3>
+                            <h4>Professor</h4>
+                        </div>
+                    </div>
+                    <div class="testimonial_details">
+                        <p><span>“</span> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                    </div>
                 </div>
-            </div>
-            <!-- testimonial item -->       
+                <!-- testimonial item -->    
+            </div>  
         </div> 
     </div>
     <!-- testimonial Section -->
 
 
     <!-- blog Section -->
-    <div class="demo_blog_section">
-        <h2 class="section_header">Latest Posts</h2>  
-
-        <div class="demo_blog_items demo_flex"> 
-            <!-- blog item -->           
-            <div class="demo_blog_item">
-                <div class="blog_image">
-                    <img src="img/blog_image1.png">
+    <div class="demo-page-section__blog">        
+        <div class="demo-page-section__blog--content container">
+            <h2 class="section_header">Latest Posts</h2>  
+            <div class="demo_blog_items flex-box"> 
+                <!-- blog item -->           
+                <div class="demo_blog_item">
+                    <div class="blog_image">
+                        <img src="img/blog_image1.png">
+                    </div>
+                    <div class="blog_details">
+                        <h3 class="blog_headline">dummy text of the printing and wgwcvwwjh</h3>
+                        <h3 class="blog_created">August 20, 2020</h3>
+                    </div>
                 </div>
-                <div class="blog_details">
-                    <h3 class="blog_headline">dummy text of the printing and wgwcvwwjh</h3>
-                    <h3 class="blog_created">August 20, 2020</h3>
+                <!-- blog item -->
+                <!-- blog item -->
+                <div class="demo_blog_item">
+                    <div class="blog_image">
+                        <img src="img/blog_image1.png">
+                    </div>
+                    <div class="blog_details">
+                        <h3 class="blog_headline">dummy text of the printing and wgwcvwwjh</h3>
+                        <h3 class="blog_created">August 20, 2020</h3>
+                    </div>
                 </div>
+                <!-- blog item -->
             </div>
-            <!-- blog item -->
-            <!-- blog item -->
-            <div class="demo_blog_item">
-                <div class="blog_image">
-                    <img src="img/blog_image1.png">
-                </div>
-                <div class="blog_details">
-                    <h3 class="blog_headline">dummy text of the printing and wgwcvwwjh</h3>
-                    <h3 class="blog_created">August 20, 2020</h3>
-                </div>
-            </div>
-            <!-- blog item -->
-        </div>
-        <a class="demo_read_more_btn" href="">Check out all the latest blogs</a>
+            <a class="demo_read_more_btn" href="">Check out all the latest blogs</a>
+        </div>        
     </div>
     <!-- blog Section -->
 
 
     <!-- footer Section -->
-    <div class="footer_section">
-        <div class="demo_divider"></div>
-        <div class="menu_bar">
-            <ul class="footer_menu">
-                <li><a href="">Home</a> </li>
-                <li><a href="">Blog</a> </li>
-                <li><a href="">About</a> </li>
-            </ul>
+    <div class="demo-page-section__footer">
+        <div class="section_divider"></div>
+        <div class="demo-page-section__footer--content container">            
+            <div class="menu_bar">
+                <ul class="footer_menu">
+                    <li><a href="">Home</a> </li>
+                    <li><a href="">Blog</a> </li>
+                    <li><a href="">About</a> </li>
+                </ul>
+            </div>
         </div>
     </div>
     <!-- footer Section -->
 
 </section>
 <!-- main Section -->
+<script>
+    //slider script
+    let counter = 1;
+    setInterval(function(){
+      document.getElementById('radio' + counter).checked = true;
+      counter++;
+      if(counter > 3){
+        counter = 1;
+      }
+    }, 5000);
+
+</script>
 </body>
 </html>
