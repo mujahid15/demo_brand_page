@@ -8,6 +8,9 @@
     <title>Demo Development</title>
     <style>
         /* Common styles */
+        html{
+            scroll-behavior: smooth;
+        }
         h1, h2, h3, h4, h5, h6, a, button {
             font-family: "Roboto", arial !important;
         }
@@ -71,11 +74,30 @@
 
         /*=====header =======*/
         .demo-page-section__header{
+            position: fixed;
+            z-index: 9999;
             height: 75px;
+            color: #fff;
             text-align: right;
             padding: 25px 15px;
+            border-bottom: 1px solid rgba(252, 249, 249, 0.3);
+            /* background-color: rgba(0,0,0,0.2); */
+            transition: top 0.3s;
+        }
+        .header-menu{
+            list-style: none;
+            text-align: center;
+        }
+        .header-menu li{
+            display: inline;
+            padding: 5px 10px;
+        }
+        .header-menu li a{
+            color: black;
+            font-weight: bold;
         }
         .menu_icon img{
+            display: none;
             width: 32px;
         }
         /*====== header =======*/
@@ -84,14 +106,27 @@
            
         /** Sliders options **/
         .demo-page-section__slider--content{
-            width: 100%;
+            width: 100%;    
+            padding-top: 75px;
+            /* min-height: 425px;
+            max-height: 425px;        */
+            background-color: #4FAFB4;
+        }
+        .slider_circle_box{
+            height: auto;
+            margin-bottom: 0px;
+            background-color: #4FAFB4;
+        }
+        .demo-page-section__slider--content .col{
+            width: 50%;
+        }
+        .demo-page-section__slider--content .col:first-child{
             background-color: #4FAFB4;
         }
         .demo-page-section__slider--content .slider_first {
-            width: 50%;
-            min-height: 350px;
-            max-height: 350px;
-            background-color: #4FAFB4;
+            /* min-height: 425px;
+            max-height: 425px; */
+            /* background-color: #4FAFB4; */
             /* background-image: url("img/hslider_first_bg@2x.png");
             background-size: cover;
             background-repeat: no-repeat;
@@ -99,10 +134,9 @@
         }
 
         .demo-page-section__slider--content .slider_second {
-            width: 50%;
-            min-height: 350px;
-            max-height: 350px;
-            background-color: #4FAFB4;
+            /* min-height: 425px;
+            max-height: 425px; */
+            /* background-color: #4FAFB4; */
             /* background-image: url("img/hslider_first_bg@2x.png");
             background-size: cover;
             background-repeat: no-repeat;
@@ -110,10 +144,9 @@
         }
 
         .demo-page-section__slider--content .slider_third {
-            width: 50%;
-            min-height: 350px;
-            max-height: 350px;
-            background-color: #4FAFB4;
+            /* min-height: 425px;
+            max-height: 425px; */
+            /* background-color: #4FAFB4; */
             /* background-image: url("img/hslider_first_bg@2x.png");
             background-size: cover;
             background-repeat: no-repeat;
@@ -122,22 +155,24 @@
 
         .demo-page-section__slider {
             overflow: hidden;
-            display: -webkit-box;
+            /* display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
             -webkit-box-align: center;
                 -ms-flex-align: center;
-                    align-items: center;
+                    align-items: center; */
             width: 100%;
             position: relative;
-            margin-bottom: 100px;
+            margin-bottom: 10px;
         }
 
         .demo-page-section__slides {
-            width: 200%;
+            width: 100%;    
+            max-height: 425px;        
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
+            flex-wrap: wrap;
         }
 
         .demo-page-section__slider input {
@@ -157,13 +192,14 @@
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
+            flex-wrap: wrap;
             -webkit-box-pack: center;
                 -ms-flex-pack: center;
                     justify-content: center;
-            bottom: 0px;
+            top: 200px;
             padding: 10px 0 10px 25px;
-            width: 70px;
-            left: 42%;
+            width: 40px;
+            right: 2%;
         }
 
         .manual-btn {
@@ -176,7 +212,7 @@
         }
 
         .manual-btn:not(:last-child) {
-            margin-right: 10px;
+            margin-bottom: 10px;
         }
 
         .manual-btn:hover {
@@ -184,15 +220,24 @@
         }
 
         #radio1:checked ~ .first {
-            margin-left: 0;
+            margin-top: 0;
         }
 
         #radio2:checked ~ .first {
-            margin-left: -100%;
+            margin-top: -436px;
+        }
+        #radio2:checked ~ .second {
+            margin-top: 0px;
         }
 
         #radio3:checked ~ .first {
-            margin-left: -200%;
+            margin-top: -436px;
+        }
+        #radio3:checked ~ .second {
+            margin-top: -436px;
+        }
+        #radio3:checked ~ .third {
+            margin-top: 0px;
         }
 
         .navigation-auto {
@@ -200,15 +245,16 @@
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
+            flex-wrap: wrap;
             width: 100%;
             -webkit-box-pack: center;
                 -ms-flex-pack: center;
                     justify-content: center;
-            bottom: 0px;
+            top: 200px;
             /*background: rgba(255, 255, 255, 0.8);*/
             padding: 10px 0 10px 25px;
-            width: 70px;
-            left: 42%;
+            width: 40px;
+            right: 2%;
             border-radius: 5px 5px 0 0;
         }
 
@@ -228,7 +274,7 @@
         }
 
         .navigation-auto div:not(:last-child) {
-            margin-right: 10px;
+            margin-bottom: 10px;
         }
 
         .navigation-auto .auto-btn1, .navigation-auto .auto-btn2, .navigation-auto .auto-btn3 {
@@ -250,7 +296,9 @@
 
        .slider_details{
             max-width: 600px;
-            margin: 0px auto;
+            padding: 0px 0px 0px 25px;
+            /* padding-top: 25px; */
+            margin: 25px auto;
         }
         .slider_details h1{
             margin: 25px 0px;
@@ -262,8 +310,8 @@
             color: #fff;
         }
         .demo_hero_circle{
-            /* max-width: 302px; */
-            margin: 0px auto;
+            max-width: 302px;
+            margin: 25px auto;
         }
 
         /****slider styles****/
@@ -309,6 +357,10 @@
         .demo_story_image{
             padding: 20px;
         }
+        .demo_story_details{
+            padding: 20px;
+            text-align: justify;
+        }
         .demo_story_section p{
             padding: 20px 15px;
         }
@@ -323,66 +375,318 @@
         /*===== my story =====*/
 
 
-        /*===== testimonial =====*/
-        .demo-page-section__testimonial {
+        /*=====  testimonial carousel =====*/            
+        .demo-page-section__testimonial_carousel {
+            overflow: hidden;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            /* width: 100%; */
+            position: relative;
             margin-top: 40px;
+            margin-bottom: 20px;
         }
-        .testimonial_item{
-            width: 50%;
-            margin: 70px 20px 20px 20px;
-            padding: 20px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, .25);
+
+        .demo-page-section__testimonial_slides {
+            width: 100%;
+            padding-bottom: 15px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
         }
-        .testimonial_client_avatar{
+
+        .demo-page-section__testimonial_carousel input {
+            display: none;
+        }
+        .demo-page-section__testimonial_item_box{
+            /* width: 100%; */
+            padding: 20px 20px;
+            box-shadow: 0px 5px 10px rgb(0 0 0 / 25%);
+            margin: 10px 20px;      
+        }
+        .demo-page-section__testimonial_carousel .slide {
+            min-width: 50%;
+            max-width: 50%;
+            -webkit-transition: 2s;
+            transition: 2s;
+            padding: 50px 0px 0px 0px;
+            
+        }
+        
+
+        .demo-page-section__testimonial_carousel .testimonial_client_avatar{
+            width: 113px;
             max-width: 113px;            
         }
-        .testimonial_client_avatar img{             
+        .demo-page-section__testimonial_carousel .testimonial_client_avatar img{             
             margin-top: -66px;
             margin-right: 25px;
             float: left;
         }
-        .testimonial_client_details h3{
+        .demo-page-section__testimonial_carousel .testimonial_client_details h3{
             font-size: 20px;
             font-weight: bold;
         }
-        .testimonial_client_details h4{
+        .demo-page-section__testimonial_carousel .testimonial_client_details h4{
             font-size: 16px;
             font-weight: normal;
         }
-        .testimonial_details{
+        .demo-page-section__testimonial_carousel .testimonial_details{
             clear: both;
         }
-        .testimonial_details p{
+        .demo-page-section__testimonial_carousel .testimonial_details p{
             padding-top: 10px;
             font-style: italic;
             font-size: 16px;
         }
-        .testimonial_details span{
+        .demo-page-section__testimonial_carousel .testimonial_details span{
             font-size: 36px;
             color: #4FAFB4;
         }
-        /*===== testimonial =====*/
+
+        /* Manual navigation */
+        .testimonial-navigation-manual {
+            position: absolute;
+            width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            bottom: -15px;
+            padding: 2px 0px 20px 0px;
+            width: 70px;
+            left: 47.5%;
+        }
+
+        .testimonial-navigation-manual .manual-btn {
+            border: 2px solid #ffffff;
+            padding: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            -webkit-transition: 1s;
+            transition: 1s;
+        }
+
+        .testimonial-navigation-manual .manual-btn:not(:last-child) {
+            margin-right: 10px;
+            margin-bottom: 0px;
+        }
+
+        .testimonial-navigation-manual .manual-btn:hover {
+            background: #C2B4A5;
+        }
+
+        #radiotestimonial1:checked ~ .testimonial_carousel_first {
+            margin-left: 0;
+        }
+
+        #radiotestimonial2:checked ~ .testimonial_carousel_first {
+            margin-left: -50%;
+        }
+
+        #radiotestimonial3:checked ~ .testimonial_carousel_first {
+            margin-left: -100%;
+        }
+
+        .testimonial-navigation-auto {
+            position: absolute;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            bottom: -15px;
+            /*background: rgba(255, 255, 255, 0.8);*/
+            padding: 6px 0px 20px 0px;
+            width: 70px;
+            left: 47.5%;
+            border-radius: 5px 5px;
+            background-color: #e0e0e0;
+        }
+
+        .testimonial-navigation-auto div {
+            border: 2px solid #09205c;
+            padding: 5px;
+            border-radius: 10px;
+            -webkit-transition: 1s;
+            transition: 1s;
+        }
+
+        .testimonial-navigation-auto div:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        .testimonial-navigation-auto .auto-btn1, .testimonial-navigation-auto .auto-btn2, .testimonial-navigation-auto .auto-btn3 {
+            background-color: #FFFFFF;
+        }
+
+        #radiotestimonial1:checked ~ .testimonial-navigation-auto .auto-btn1 {
+            background: #C2B4A5;
+        }
+
+        #radiotestimonial2:checked ~ .testimonial-navigation-auto .auto-btn2 {
+            background: #C2B4A5;
+        }
+
+        #radiotestimonial3:checked ~ .testimonial-navigation-auto .auto-btn3 {
+            background: #C2B4A5;
+        }
+  
+        /*===== testimonial carousel =====*/
 
 
-        /*===== Blog =====*/
-        .demo-page-section__blog{
+        /*===== ready blog carousel =====*/
+        
+        /** Sliders options **/
+       .demo-page-section__blog_carousel {
+            overflow: hidden;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            /* width: 100%; */
+            position: relative;
+            margin-bottom: 30px;
             margin-top: 40px;
         }
-        .demo-page-section__blog h2{
+        .demo-page-section__blog_carousel--content .demo_read_more_btn{
+            margin-top: -44px;
+        }
+        .demo-page-section__blog_slides {
+            width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .demo-page-section__blog_carousel input {
+            display: none;
+        }
+
+        .demo-page-section__blog_carousel .slide {
+            min-width: 50%;
+            -webkit-transition: 2s;
+            transition: 2s;
+        }
+        
+        .demo-page-section__blog_carousel .demo-page-section__blog h2{
             margin-bottom: 40px;
         }
-        .demo_blog_item{
-            width: 50%;
+        .demo-page-section__blog_carousel .demo_blog_item{
+            width: 100%;
             margin: 20px;
             box-shadow: 0px 5px 10px rgba(0, 0, 0, .25);
         }
-        .blog_details{
+        .demo-page-section__blog_carousel .blog_details{
             padding: 20px 10px;
         }
-        .blog_created{
+        .demo-page-section__blog_carousel .blog_created{
             font-weight: normal;
         }
-        /*===== Blog =====*/
+
+        /* Manual navigation */
+        .blog-navigation-manual {
+            position: absolute;
+            width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            bottom: -15px;
+            padding: 2px 0px 20px 0px;
+            width: 70px;
+            left: 47.5%;
+        }
+
+        .blog-navigation-manual .manual-btn {
+            border: 2px solid #ffffff;
+            padding: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            -webkit-transition: 1s;
+            transition: 1s;
+        }
+
+        .blog-navigation-manual .manual-btn:not(:last-child) {
+            margin-right: 10px;
+            margin-bottom: 0px;
+        }
+
+        .blog-navigation-manual .manual-btn:hover {
+            background: #C2B4A5;
+        }
+
+        #radioblog1:checked ~ .blog_carousel_first {
+            margin-left: 0;
+        }
+
+        #radioblog2:checked ~ .blog_carousel_first {
+            margin-left: -50%;
+        }
+
+        #radioblog3:checked ~ .blog_carousel_first {
+            margin-left: -100%;
+        }
+
+        .blog-navigation-auto {
+            position: absolute;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            bottom: -15px;
+            /*background: rgba(255, 255, 255, 0.8);*/
+            padding: 6px 0px 20px 0px;
+            width: 70px;
+            left: 47.5%;
+            border-radius: 5px 5px;
+            background-color: #e0e0e0;
+        }
+
+        .blog-navigation-auto div {
+            border: 2px solid #09205c;
+            padding: 5px;
+            border-radius: 10px;
+            -webkit-transition: 1s;
+            transition: 1s;
+        }
+
+        .blog-navigation-auto div:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        .blog-navigation-auto .auto-btn1, .blog-navigation-auto .auto-btn2, .blog-navigation-auto .auto-btn3 {
+            background-color: #FFFFFF;
+        }
+
+        #radioblog1:checked ~ .blog-navigation-auto .auto-btn1 {
+            background: #C2B4A5;
+        }
+
+        #radioblog2:checked ~ .blog-navigation-auto .auto-btn2 {
+            background: #C2B4A5;
+        }
+
+        #radioblog3:checked ~ .blog-navigation-auto .auto-btn3 {
+            background: #C2B4A5;
+        }
+
+        /*=====  blog carousel =====*/
+
 
 
         /*===== footer =====*/
@@ -411,27 +715,50 @@
 
 
         @media only screen and (max-width: 767px) {
+            /* Header menu */
+            .header-menu{
+                display: none;
+            }
+            .menu_icon img{
+                display: block;
+            }
+            /* Header menu */
             /* slider */
             .demo-page-section__slides > .flex-box{
                 flex-wrap: wrap;
             }
+            .demo-page-section__slides{
+                min-height: 600px!important;
+                max-height: 600px!important;
+            }
             .demo-page-section__slider--content{
-                padding: 0px;
+                /* padding: 0px; */
                 width: 100%;
                 background-color: #FFF;
             }
-            .slider_first, .slider_second, .slider_third{
+            .demo-page-section__slider--content .col{
                 width: 100%!important;
-            }
+            }            
             .slider_details{
-                max-width: 340px;
+                /* max-width: 340px; */
+                max-width: 100%;
+                padding: 0px 5%;
             }
             .slider_details h1{
                 margin: 15px 0px;
             }
-            .demo_hero_circle img{
-                margin-top: -151px;
+            .demo_hero_circle{
+                margin: 0px auto;
             }
+            .slider_circle_box{
+                height: 151px;
+                margin-bottom: 151px;
+                background-color: #4FAFB4;
+            }
+            /* .demo_hero_circle img{
+                display: none;
+                margin-top: -151px;
+            } */
             .navigation-auto{
                 display: none;
             }
@@ -449,6 +776,9 @@
                 width: 100%;
             }
             .demo_story_image{
+                padding: 0px;
+            }
+            .demo_story_details{
                 padding: 0px;
             }
             /* story */
@@ -469,105 +799,132 @@
                 min-width: 80%;
             }
             /* newsletter */
-
-
-
+            
             /* Testimonial */
-            .demo-page-section__testimonial--content > .flex-box{
-                flex-wrap: wrap;
+            .demo-page-section__testimonial_carousel .slide{
+                min-width: 100%!important;
             }
-            .testimonial_item{
-                width: 100%;
-            }
-            /*== Testimonial== */
-
-
+            /* Testimonial */
 
             /*== blog section ==*/            
-            .demo-page-section__blog--content > .flex-box{
-                flex-wrap: wrap;
-            }
-            .demo_blog_item{
-                width: 100%;
+            .demo-page-section__blog_carousel .slide{
+                min-width: 100%!important;
             }
             /* blog section */
+        }
+        @media only screen and (width: 768px) {
+            .demo-page-section__story--content > .flex-box{
+                align-items: flex-start;
+            }
+        }
+        @media only screen and (max-width: 320px) {
+            .demo-page-section__slides{
+                min-height: 650px!important;
+                max-height: 650px!important;
+            }
         }
     </style>
 </head>
 <body>
 <section class="demo-page-section">
-    <div class="demo-page-section__header">
+    <div class="demo-page-section__header container-fluid" id="navbar">        
+        <ul class="header-menu">
+            <li><a>Menu1</a> </li>
+            <li><a>Menu2</a> </li>
+            <li><a>Menu3</a> </li>
+            <li><a>Menu3</a> </li>
+            <li><a>Menu3</a> </li>
+        </ul>
         <div class="menu_icon">
             <img src="img/demo_menu_bar.png">
         </div>
+        
     </div>
     <!-- header section -->        
     <!-- hero section -->
-    <div class="demo-page-section__slider flex-box">        
+    <div class="demo-page-section__slider container-fluid">        
         <div class="demo-page-section__slides">
-        <!-- Radio buttons -->
-        <input type="radio" name="radio-btn" id="radio1">
-        <input type="radio" name="radio-btn" id="radio2">
-        <input type="radio" name="radio-btn" id="radio3">
-        
-        <div class="demo-page-section__slider--content flex-box slide first">
-            <div class="slider_first">
-                <div class="slider_details">                    
-                    <h1>Contrary to popular belief, Lorem Iewcjhvjeh , page1</h1>
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at wwjhcwhwgcweccww</p>
-                 </div>          
+            <!-- Radio buttons -->
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            
+            <div class="demo-page-section__slider--content flex-box slide first">
+                <div class="col">
+                    <div class="slider_first">
+                        <div class="slider_details">                    
+                            <h1>Contrary to popular belief, Lorem Iewcjhvjeh , page1</h1>
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at wwjhcwhwgcweccww</p>
+                        </div>          
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="slider_circle_box">
+                        <div class="demo_hero_circle">
+                            <img src="img/demo_hero_cirble.png">
+                        </div> 
+                    </div>                       
+                </div>                       
             </div>
-            <div class="demo_hero_circle">
-                <img src="img/demo_hero_cirble.png">
-            </div>           
-        </div>
-        <div class="demo-page-section__slider--content flex-box slide">
-            <div class="slider_second">
-                <div class="slider_details">                    
-                    <h1>Contrary to popular belief, Lorem Iewcjhvjeh , page2</h1>
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at wwjhcwhwgcweccww</p>
-                </div>          
+            <div class="demo-page-section__slider--content flex-box slide second">
+                <div class="col">
+                    <div class="slider_second">
+                        <div class="slider_details">                    
+                            <h1>Contrary to popular belief, Lorem Iewcjhvjeh , page2</h1>
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at wwjhcwhwgcweccww</p>
+                        </div>          
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="slider_circle_box">
+                        <div class="demo_hero_circle">
+                            <img src="img/demo_hero_cirble.png">
+                        </div> 
+                    </div>                       
+                </div>                          
+            </div>
+            <div class="demo-page-section__slider--content flex-box slide third">
+                <div class="col">
+                    <div class="slider_third">
+                        <div class="slider_details">                    
+                            <h1>Contrary to popular belief, Lorem Iewcjhvjeh , page3</h1>
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at wwjhcwhwgcweccww</p>
+                        </div>          
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="slider_circle_box">
+                        <div class="demo_hero_circle">
+                            <img src="img/demo_hero_cirble.png">
+                        </div> 
+                    </div>                       
+                </div>                  
+            </div>
+            <!-- Auto navigation -->
+            <div class="navigation-auto flex-box">
+                <!-- <img src="images/nav-icon.png" /> -->
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
             </div>  
-            <div class="demo_hero_circle">
-                <img src="img/demo_hero_cirble.png">
-            </div>         
-        </div>
-        <div class="demo-page-section__slider--content flex-box slide">
-            <div class="slider_third">
-                <div class="slider_details">
-                    <h1>Contrary to popular belief, Lorem Iewcjhvjeh , page3</h1>
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at wwjhcwhwgcweccww</p>
-                </div>          
+            <div class="navigation-manual flex-box">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
             </div>
-            <div class="demo_hero_circle">
-                <img src="img/demo_hero_cirble.png">
-            </div> 
         </div>
-        <!-- Auto navigation -->
-        <div class="navigation-auto">
-            <!-- <img src="images/nav-icon.png" /> -->
-            <div class="auto-btn1"></div>
-            <div class="auto-btn2"></div>
-            <div class="auto-btn3"></div>
-        </div>  
-        <div class="navigation-manual">
+        <!-- Manual navigation -->
+        <div class="navigation-manual" style="display: none;">
             <label for="radio1" class="manual-btn"></label>
             <label for="radio2" class="manual-btn"></label>
             <label for="radio3" class="manual-btn"></label>
         </div>
-        </div>
-        <!-- Manual navigation -->
-        <div class="navigation-manual" style="display: none;">
-        <label for="radio1" class="manual-btn"></label>
-        <label for="radio2" class="manual-btn"></label>
-        <label for="radio3" class="manual-btn"></label>
-        </div>
+        
     </div>
-
 
     <!-- Newsletter section -->       
     <div class="demo-page-section__newsletter">
-      <div class="section_divider"></div>   
+        <div class="section_divider"></div>   
         <div class="demo-page-section__newsletter--content container">        
             <h2 class="section_header">Subscribe to my blog to stay updated with the latests posts.</h2>
             <input class="newsletter_mail" type="text" placeholder="Please enter your email address">
@@ -575,7 +932,7 @@
         </div>
         <div class="section_divider"></div>
     </div>        
-    <!-- Newsletter section -->
+    <!-- Newsletter section --> 
 
 
     <!-- Story Section -->
@@ -599,13 +956,19 @@
     </div>
     <!-- Story Section -->
 
-    <!-- testimonial Section -->
-    <div class="demo-page-section__testimonial">
-        <div class="demo-page-section__testimonial--content container">
-            <h2 class="section_header">Testimonials</h2>
-            <div class="demo_testimonial_items flex-box">
-                <!-- testimonial item -->
-                <div class="testimonial_item">
+
+    <!--  testimonial carousel -->
+    <div class="demo-page-section__testimonial_carousel">      
+        <div class="demo-page-section__testimonial_carousel--content container"> 
+            <h2 class="section_header">Testimonials</h2>       
+            <div class="demo-page-section__testimonial_slides">
+            <!-- Radio buttons -->
+            <input type="radio" name="radio-btn" id="radiotestimonial1">
+            <input type="radio" name="radio-btn" id="radiotestimonial2">
+            <input type="radio" name="radio-btn" id="radiotestimonial3">
+            
+            <div class="demo-page-section__testimonial_carousel slide testimonial_carousel_first">
+                <div class="demo-page-section__testimonial_item_box">                
                     <div class="testimonial_client">
                         <div class="testimonial_client_avatar">
                             <img src="img/testimonial_client1.png">
@@ -618,10 +981,10 @@
                     <div class="testimonial_details">
                         <p><span>“</span> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
                     </div>
-                </div>
-                <!-- testimonial item -->
-                <!-- testimonial item -->
-                <div class="testimonial_item">
+                </div>        
+            </div>
+            <div class="demo-page-section__testimonial_carousel slide">
+                <div class="demo-page-section__testimonial_item_box">                
                     <div class="testimonial_client">
                         <div class="testimonial_client_avatar">
                             <img src="img/testimonial_client1.png">
@@ -634,20 +997,81 @@
                     <div class="testimonial_details">
                         <p><span>“</span> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
                     </div>
-                </div>
-                <!-- testimonial item -->    
+                </div>             
+            </div>
+            <div class="demo-page-section__testimonial_carousel slide">
+                <div class="demo-page-section__testimonial_item_box">                
+                    <div class="testimonial_client">
+                        <div class="testimonial_client_avatar">
+                            <img src="img/testimonial_client1.png">
+                        </div>
+                        <div class="testimonial_client_details">
+                            <h3>John Doe</h3>
+                            <h4>Professor</h4>
+                        </div>
+                    </div>
+                    <div class="testimonial_details">
+                        <p><span>“</span> The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                    </div>
+                </div>       
+            </div>
+            <!-- Auto navigation -->
+            <div class="testimonial-navigation-auto">
+                <!-- <img src="images/nav-icon.png" /> -->
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
             </div>  
-        </div> 
+            <div class="testimonial-navigation-manual">
+                <label for="radiotestimonial1" class="manual-btn"></label>
+                <label for="radiotestimonial2" class="manual-btn"></label>
+                <label for="radiotestimonial3" class="manual-btn"></label>
+            </div>
+        </div>
+        <!-- Manual navigation -->
+            <div class="testimonial-navigation-manual" style="display: none;">
+                <label for="radiotestimonial1" class="manual-btn"></label>
+                <label for="radiotestimonial2" class="manual-btn"></label>
+                <label for="radiotestimonial3" class="manual-btn"></label>
+            </div>
+        </div>  
     </div>
-    <!-- testimonial Section -->
+    <!-- testimonial carousel -->
 
-
-    <!-- blog Section -->
-    <div class="demo-page-section__blog">        
-        <div class="demo-page-section__blog--content container">
-            <h2 class="section_header">Latest Posts</h2>  
-            <div class="demo_blog_items flex-box"> 
-                <!-- blog item -->           
+    <!--  blog carousel -->
+    <div class="demo-page-section__blog_carousel flex-box">  
+        <div class="demo-page-section__blog_carousel--content container">
+        <h2 class="section_header">Latest Posts</h2>         
+             
+            <div class="demo-page-section__blog_slides">
+            <!-- Radio buttons -->
+            <input type="radio" name="radio-btn" id="radioblog1">
+            <input type="radio" name="radio-btn" id="radioblog2">
+            <input type="radio" name="radio-btn" id="radioblog3">
+            
+            <div class="demo-page-section__blog_carousel flex-box slide blog_carousel_first">
+                <div class="demo_blog_item">
+                    <div class="blog_image">
+                        <img src="img/blog_image1.png">
+                    </div>
+                    <div class="blog_details">
+                        <h3 class="blog_headline">dummy text of the printing and wgwcvwwjh</h3>
+                        <h3 class="blog_created">August 20, 2020</h3>
+                    </div>
+                </div>          
+            </div>
+            <div class="demo-page-section__blog_carousel flex-box slide">
+                <div class="demo_blog_item">
+                    <div class="blog_image">
+                        <img src="img/blog_image1.png">
+                    </div>
+                    <div class="blog_details">
+                        <h3 class="blog_headline">dummy text of the printing and wgwcvwwjh</h3>
+                        <h3 class="blog_created">August 20, 2020</h3>
+                    </div>
+                </div>      
+            </div>
+            <div class="demo-page-section__blog_carousel flex-box slide">
                 <div class="demo_blog_item">
                     <div class="blog_image">
                         <img src="img/blog_image1.png">
@@ -657,23 +1081,30 @@
                         <h3 class="blog_created">August 20, 2020</h3>
                     </div>
                 </div>
-                <!-- blog item -->
-                <!-- blog item -->
-                <div class="demo_blog_item">
-                    <div class="blog_image">
-                        <img src="img/blog_image1.png">
-                    </div>
-                    <div class="blog_details">
-                        <h3 class="blog_headline">dummy text of the printing and wgwcvwwjh</h3>
-                        <h3 class="blog_created">August 20, 2020</h3>
-                    </div>
-                </div>
-                <!-- blog item -->
+            </div>
+            <!-- Auto navigation -->
+            <div class="blog-navigation-auto">
+                <!-- <img src="images/nav-icon.png" /> -->
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+            </div>  
+            <div class="blog-navigation-manual">
+                <label for="radioblog1" class="manual-btn"></label>
+                <label for="radioblog2" class="manual-btn"></label>
+                <label for="radioblog3" class="manual-btn"></label>
+            </div>
+            </div>
+            <!-- Manual navigation -->
+            <div class="blog-navigation-manual" style="display: none;">
+            <label for="radioblog1" class="manual-btn"></label>
+            <label for="radioblog2" class="manual-btn"></label>
+            <label for="radioblog3" class="manual-btn"></label>
             </div>
             <a class="demo_read_more_btn" href="">Check out all the latest blogs</a>
-        </div>        
+        </div>
     </div>
-    <!-- blog Section -->
+    <!--  blog carousel -->
 
 
     <!-- footer Section -->
@@ -694,15 +1125,88 @@
 </section>
 <!-- main Section -->
 <script>
-    //slider script
-    let counter = 1;
-    setInterval(function(){
-      document.getElementById('radio' + counter).checked = true;
-      counter++;
-      if(counter > 3){
-        counter = 1;
-      }
-    }, 5000);
+
+//hide navbar on scroll down
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-700px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+//hide navbar on scroll down
+
+//testimonial carousel
+    let countertestimonial = 1;
+        setInterval(function(){
+        document.getElementById('radiotestimonial' + countertestimonial).checked = true;
+        countertestimonial++;
+        if(countertestimonial > 3){
+            countertestimonial = 1;
+        }
+        
+        }, 5000);
+//testimonial carousel
+
+//blog carousel
+let counterblog = 1;
+        setInterval(function(){
+        document.getElementById('radioblog' + counterblog).checked = true;
+        counterblog++;
+        if(counterblog > 3){
+            counterblog = 1;
+        }
+        }, 5000);
+//blog carousel
+
+//smooth scroll
+    class Scrooth {
+  constructor({element = window, strength=10, acceleration = 1.2,deceleration = 0.975}={}) {
+    this.element = element;
+    this.distance = strength;
+    this.acceleration = acceleration;
+    this.deceleration = deceleration;
+    this.running = false;
+
+    this.element.addEventListener('wheel', this.scrollHandler.bind(this), {passive: false});
+    this.element.addEventListener('mousewheel', this.scrollHandler.bind(this), {passive: false});
+    this.scroll = this.scroll.bind(this);
+  }
+
+  scrollHandler(e) {
+    e.preventDefault();
+
+    if (!this.running) {
+      this.top = this.element.pageYOffset || this.element.scrollTop || 0;
+      this.running = true;
+      this.currentDistance = e.deltaY > 0 ? 0.1 : -0.1;
+      this.isDistanceAsc = true;
+      this.scroll();
+    } else {
+      this.isDistanceAsc = false;
+      this.currentDistance = e.deltaY > 0 ? this.distance : -this.distance;
+    }
+  }
+
+  scroll() {
+    if (this.running) {
+      this.currentDistance *= this.isDistanceAsc === true ? this.acceleration : this.deceleration;
+      Math.abs(this.currentDistance) < 0.1 && this.isDistanceAsc === false ? this.running = false : 1;
+      Math.abs(this.currentDistance) >= Math.abs(this.distance) ? this.isDistanceAsc = false : 1;
+
+      this.top += this.currentDistance;
+      this.element.scrollTo(0, this.top);
+      
+      requestAnimationFrame(this.scroll);
+    }
+  }
+}
+
+const body = new Scrooth();
+//smooth scroll
 
 </script>
 </body>
